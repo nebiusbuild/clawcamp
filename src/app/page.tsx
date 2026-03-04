@@ -31,6 +31,11 @@ const badgeIcons: Record<string, React.ReactNode> = {
       <path strokeLinecap="round" strokeLinejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182M21.015 4.356v4.992" />
     </svg>
   ),
+  robot: (
+    <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M11.42 15.17l-5.1-5.1m0 0L3.07 12.9a1.5 1.5 0 001.06 2.56h1.5m-1.5-2.56l6.36-6.36m5.1 5.1l5.1-5.1m0 0L17.93 7.1a1.5 1.5 0 00-1.06 2.56h-1.5m1.5-2.56l-6.36 6.36M12 21a9 9 0 110-18 9 9 0 010 18z" />
+    </svg>
+  ),
 };
 
 export default function Home() {
@@ -58,9 +63,9 @@ export default function Home() {
             </h1>
 
             <p className="text-xl text-nebius-text-muted max-w-2xl mb-10 leading-relaxed">
-              Three hands-on workshops for builders who want agents that actually run.
+              Four hands-on workshops for builders who want agents that actually run.
               Deploy on Nebius Serverless, connect to Token Factory for inference,
-              and go from prototype to production-grade private agents.
+              and go from prototype to production-grade private agents — or control a robotic arm.
             </p>
 
             <div className="flex flex-wrap gap-4">
@@ -99,7 +104,7 @@ export default function Home() {
       <section className="border-b border-nebius-border bg-nebius-darker py-8">
         <div className="mx-auto max-w-7xl px-6 grid grid-cols-2 md:grid-cols-4 gap-8">
           <div className="text-center">
-            <div className="text-3xl font-bold text-white">3</div>
+            <div className="text-3xl font-bold text-white">4</div>
             <div className="text-sm text-nebius-text-muted mt-1">Workshops</div>
           </div>
           <div className="text-center">
@@ -175,7 +180,7 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-6">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Workshops</h2>
           <p className="text-lg text-nebius-text-muted max-w-2xl mb-12">
-            Three tracks from first deploy to production-grade private agents.
+            Four tracks from first deploy to production-grade private agents and physical robotics.
             All running on Nebius Serverless + Token Factory.
           </p>
 

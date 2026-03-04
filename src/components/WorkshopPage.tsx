@@ -21,6 +21,11 @@ const icons: Record<string, React.ReactNode> = {
       <path strokeLinecap="round" strokeLinejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182M21.015 4.356v4.992" />
     </svg>
   ),
+  robot: (
+    <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M11.42 15.17l-5.1-5.1m0 0L3.07 12.9a1.5 1.5 0 001.06 2.56h1.5m-1.5-2.56l6.36-6.36m5.1 5.1l5.1-5.1m0 0L17.93 7.1a1.5 1.5 0 00-1.06 2.56h-1.5m1.5-2.56l-6.36 6.36M12 21a9 9 0 110-18 9 9 0 010 18z" />
+    </svg>
+  ),
 };
 
 export default function WorkshopPage({ workshop }: { workshop: Workshop }) {

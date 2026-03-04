@@ -868,4 +868,310 @@ export const workshops: Workshop[] = [
       },
     ],
   },
+  {
+    slug: "robotics",
+    badge: "Workshop",
+    badgeColor: "badge-pink",
+    title: "OpenClaw + Robotics with SO-ARM101",
+    subtitle:
+      "AI Agents That Move Things. In the Real World.",
+    tagline:
+      "Connect OpenClaw to a robotic arm via Nebius Serverless + Token Factory — and watch your agent pick things up.",
+    description:
+      "Deploy OpenClaw on Nebius Serverless, connect it to Token Factory for vision and language inference, and wire it to a SO-ARM101 robotic arm. Your agent sees the workspace through a camera, reasons about what to do, and executes pick-and-place tasks — all orchestrated from serverless infrastructure. No local GPU, no custom drivers, just an API call that moves a physical arm.",
+    audience:
+      "Robotics-curious developers, hardware hackers, AI engineers who want to bridge digital and physical",
+    level: "Intermediate",
+    levelColor: "level-pink",
+    keyValue:
+      "An AI agent that controls a physical robotic arm via serverless infrastructure",
+    wowFactor:
+      '"I told my agent to pick up the red block and it actually did it — from a serverless endpoint"',
+    icon: "robot",
+    whatYouBuild: [
+      "An OpenClaw agent on Nebius Serverless that controls a SO-ARM101 robotic arm",
+      "A vision pipeline using Token Factory multimodal models to see the workspace",
+      "A pick-and-place workflow where natural language commands move physical objects",
+    ],
+    whatWeCover: [
+      "SO-ARM101 hardware overview: 6-DOF arm, gripper, USB connection, coordinate system",
+      "Deploying the agent on Nebius Serverless (CPU-only) with Token Factory for vision + language inference",
+      "Multimodal inference: using vision models on Token Factory to understand camera feeds",
+      "Translating natural language commands into robotic arm movements",
+      "Safety and error handling: what happens when the arm can't reach, drops something, or the camera is occluded",
+      "Building feedback loops: the agent sees the result of its action and decides what to do next",
+    ],
+    whoIsThisFor:
+      "Developers who want to see AI agents interact with the physical world. You don't need robotics experience — we provide the arms and walk you through everything. Great for anyone who's tired of agents that only write text and wants to build something you can watch move.",
+    prerequisites: [
+      "Laptop with a browser and terminal access",
+      "A Nebius AI Cloud account (we'll help you set one up if needed)",
+      "Comfort with APIs and basic Python (arm control uses Python SDK)",
+    ],
+    youLeaveWith: [
+      "A working agent that controls a SO-ARM101 arm via natural language",
+      "Vision pipeline running on Token Factory multimodal endpoints",
+      "A serverless deployment you can adapt to other robotic hardware",
+      "Python scripts for arm calibration, movement, and gripper control",
+      "Video of your agent picking up objects to show your team",
+    ],
+    schedule: [
+      {
+        time: "12:00 PM – 12:30 PM",
+        title: "Hardware Setup & Architecture Overview",
+        description:
+          "Meet the SO-ARM101, understand the stack, and connect everything",
+        details: [
+          "SO-ARM101 overview: 6 degrees of freedom, gripper, USB interface",
+          "The full stack: Camera → Token Factory (vision) → OpenClaw (reasoning) → Arm (action)",
+          "Why serverless for robotics: the agent runs in the cloud, only the arm is local",
+        ],
+      },
+      {
+        time: "12:30 PM – 1:15 PM",
+        title: "Hands-On: Deploy the Agent + Vision Pipeline",
+        description:
+          "Deploy OpenClaw on Serverless, connect vision inference, and wire up the arm",
+        details: [
+          "Deploy OpenClaw on Nebius Serverless with Token Factory for inference",
+          "Set up multimodal vision: camera feed → Token Factory → workspace understanding",
+          "Connect the SO-ARM101 via Python SDK and test basic movements",
+          "First integration: agent sees the workspace and describes what it sees",
+        ],
+      },
+      {
+        time: "1:15 PM – 2:00 PM",
+        title: "Build Pick-and-Place Workflows",
+        description:
+          "Natural language commands that move real objects",
+        details: [
+          "Define pick-and-place tools: move_to(x,y,z), grip(), release(), look()",
+          "Give the agent natural language commands: 'pick up the red block'",
+          "Build feedback loops: the agent checks if it succeeded and retries if needed",
+          "Challenge round: sort objects by color using only natural language instructions",
+        ],
+      },
+      {
+        time: "2:00 PM – 2:30 PM",
+        title: "Advanced Patterns & Show-and-Tell",
+        description:
+          "Safety, error handling, and showing off what you built",
+        details: [
+          "Safety patterns: force limits, workspace boundaries, emergency stop",
+          "Error recovery: what to do when the arm drops something or can't reach",
+          "Record a video of your agent in action",
+          "Show-and-tell: demo your workflow to the group",
+        ],
+      },
+    ],
+    guideSteps: [
+      {
+        stepNumber: 1,
+        title: "Install the Nebius CLI & Python SDK",
+        duration: "5 min",
+        overview:
+          "Set up the Nebius CLI for deploying your agent and the Python SDK for controlling the SO-ARM101 arm.",
+        instructions: [
+          "Install the Nebius CLI",
+          "Install the SO-ARM101 Python SDK",
+          "Verify both are working",
+        ],
+        commands: [
+          "# Install Nebius CLI",
+          "curl -sSL https://storage.ai.nebius.cloud/cli/install.sh | bash",
+          "nebius auth login",
+          "",
+          "# Install SO-ARM101 Python SDK",
+          "pip install so-arm101",
+          "",
+          "# Verify CLI",
+          "nebius iam whoami",
+        ],
+        tips: [
+          "The SO-ARM101 SDK works on macOS, Linux, and Windows. USB drivers are included.",
+        ],
+        checkpoint:
+          "Running 'nebius iam whoami' and 'python -c \"import so_arm101\"' both succeed.",
+      },
+      {
+        stepNumber: 2,
+        title: "Connect and Calibrate the Arm",
+        duration: "10 min",
+        overview:
+          "Plug in the SO-ARM101, run calibration, and verify you can control it from Python.",
+        instructions: [
+          "Connect the SO-ARM101 via USB",
+          "Run the calibration script to set the home position",
+          "Test basic movements: move to coordinates, open/close gripper",
+          "Verify the camera feed is working",
+        ],
+        commands: [
+          "# Connect and calibrate",
+          "python -m so_arm101 calibrate --port /dev/ttyUSB0",
+          "",
+          "# Test movement",
+          "python -c \"",
+          "from so_arm101 import Arm",
+          "arm = Arm('/dev/ttyUSB0')",
+          "arm.home()",
+          "arm.move_to(x=150, y=0, z=100)",
+          "arm.grip()",
+          "arm.release()",
+          "print('Arm is working!')",
+          "\"",
+        ],
+        tips: [
+          "If the arm doesn't respond, try a different USB port. On Mac, the port is usually /dev/tty.usbserial-*",
+          "The calibration sets the arm's coordinate system. Always calibrate before starting a new session.",
+        ],
+        checkpoint:
+          "The arm moves to a target position and the gripper opens and closes on command.",
+      },
+      {
+        stepNumber: 3,
+        title: "Deploy OpenClaw on Serverless",
+        duration: "10 min",
+        overview:
+          "Deploy the OpenClaw agent on Nebius Serverless. The agent runs in the cloud — only the arm and camera are local.",
+        instructions: [
+          "Get your network and subnet IDs",
+          "Deploy OpenClaw with the robotics configuration",
+          "Verify the endpoint is live",
+        ],
+        commands: [
+          "# Get subnet",
+          "export SUBNET_ID=$(nebius vpc subnet get-by-name \\",
+          "  --name default-subnet --format jsonpath='{.metadata.id}')",
+          "",
+          "# Deploy OpenClaw for robotics",
+          "export AUTH_TOKEN=$(openssl rand -hex 32)",
+          "nebius msp serverless v1alpha1 endpoint create \\",
+          "  --name openclaw-robotics \\",
+          "  --container-image openclaw:robotics \\",
+          "  --container-template-resources-platform cpu-d3 \\",
+          "  --container-template-resources-preset 4vcpu-16gb \\",
+          "  --port 8080 \\",
+          "  --username admin \\",
+          "  --password \"$AUTH_TOKEN\" \\",
+          "  --network-id <your-network-id> \\",
+          "  --parent-id <your-project-id>",
+          "",
+          "# Get endpoint IP",
+          "export ENDPOINT_ID=$(nebius msp serverless v1alpha1 endpoint get-by-name \\",
+          "  --name openclaw-robotics --format jsonpath='{.metadata.id}')",
+          "export ENDPOINT_IP=$(nebius msp serverless v1alpha1 endpoint get $ENDPOINT_ID \\",
+          "  --format jsonpath='{.status.public_endpoints[0]}')",
+        ],
+        checkpoint:
+          "curl http://$ENDPOINT_IP:8080/health returns a 200 response.",
+      },
+      {
+        stepNumber: 4,
+        title: "Set Up Vision Inference",
+        duration: "10 min",
+        overview:
+          "Connect the camera to Token Factory's multimodal models so your agent can see the workspace.",
+        instructions: [
+          "Configure Token Factory API key for multimodal inference",
+          "Capture a frame from the camera",
+          "Send it to a vision model and get a description of the workspace",
+          "Verify the model correctly identifies objects on the table",
+        ],
+        commands: [
+          "# Set Token Factory key",
+          "export TF_API_KEY=<your-token-factory-api-key>",
+          "",
+          "# Test vision inference with a camera frame",
+          "python -c \"",
+          "import cv2, base64, requests",
+          "cap = cv2.VideoCapture(0)",
+          "ret, frame = cap.read()",
+          "_, buf = cv2.imencode('.jpg', frame)",
+          "img_b64 = base64.b64encode(buf).decode()",
+          "resp = requests.post('https://api.studio.nebius.com/v1/chat/completions',",
+          "  headers={'Authorization': f'Bearer {TF_API_KEY}'},",
+          "  json={",
+          "    'model': 'meta-llama/Llama-3.2-90B-Vision-Instruct',",
+          "    'messages': [{'role': 'user', 'content': [",
+          "      {'type': 'text', 'text': 'Describe the objects on the table and their positions.'},",
+          "      {'type': 'image_url', 'image_url': {'url': f'data:image/jpeg;base64,{img_b64}'}}",
+          "    ]}],",
+          "    'max_tokens': 300",
+          "  })",
+          "print(resp.json()['choices'][0]['message']['content'])",
+          "\"",
+        ],
+        tips: [
+          "Use Llama 3.2 90B Vision for best spatial understanding. It can identify colors, positions, and relative locations.",
+          "Good lighting makes a huge difference. Avoid shadows on the workspace.",
+        ],
+        checkpoint:
+          "The vision model correctly describes the objects and their approximate positions on the table.",
+      },
+      {
+        stepNumber: 5,
+        title: "Wire Agent → Vision → Arm",
+        duration: "15 min",
+        overview:
+          "Connect everything together: the agent reasons about what to do, sees through the camera, and controls the arm.",
+        instructions: [
+          "Define the tool schema: move_to, grip, release, look (capture + analyze)",
+          "Configure OpenClaw to call these tools based on natural language commands",
+          "Test the full loop: 'What do you see?' → agent calls look() → describes workspace",
+          "Test a pick command: 'Pick up the red block' → agent plans → executes",
+        ],
+        tips: [
+          "Start with simple commands like 'pick up the closest object' before trying 'sort by color'",
+          "The agent should call look() after every action to verify it succeeded",
+        ],
+        checkpoint:
+          "Your agent successfully picks up an object when given a natural language command.",
+      },
+      {
+        stepNumber: 6,
+        title: "Build Feedback Loops & Error Recovery",
+        duration: "10 min",
+        overview:
+          "Make your agent robust: it checks its own work, retries on failure, and handles edge cases.",
+        instructions: [
+          "Add a verify step after each action: agent calls look() and checks if the action succeeded",
+          "Handle failures: if grip() fails, the agent adjusts position and retries",
+          "Add workspace boundary checks: prevent the arm from going out of range",
+          "Test with adversarial scenarios: move an object while the agent is planning",
+        ],
+        tips: [
+          "Robust robotics agents follow the pattern: plan → act → observe → adjust. Build this loop explicitly.",
+          "Set a max retry count (3 is good) to prevent infinite loops when something is truly unreachable.",
+        ],
+        checkpoint:
+          "Your agent retries after a failed grip and handles out-of-range requests gracefully.",
+      },
+      {
+        stepNumber: 7,
+        title: "Record Your Demo & Share",
+        duration: "10 min",
+        overview:
+          "Record a video of your agent in action and show it off to the group.",
+        instructions: [
+          "Set up a good camera angle that shows the arm and workspace",
+          "Record your agent completing a multi-step task (e.g., sort 3 objects by color)",
+          "Share your video in the group chat",
+          "Document your setup for future reference: deploy commands, tool schemas, and configuration",
+        ],
+        commands: [
+          "# Save your deployment config",
+          "nebius msp serverless v1alpha1 endpoint get $ENDPOINT_ID --format yaml > robotics-deploy.yaml",
+          "",
+          "# Check endpoint logs for the session",
+          "nebius msp serverless v1alpha1 endpoint logs $ENDPOINT_ID",
+        ],
+        tips: [
+          "The best demos show a failure → recovery → success sequence. It proves the agent is actually reasoning, not scripted.",
+          "Save your tool schemas and prompts — they're the hard-won part. The infrastructure is one CLI command away.",
+        ],
+        checkpoint:
+          "You have a recorded demo of your agent controlling the arm and a saved deployment config for future use.",
+      },
+    ],
+  },
 ];

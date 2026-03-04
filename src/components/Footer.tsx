@@ -44,6 +44,7 @@ export default function Footer() {
               <li><Link href="/workshops/agent-inference" className="text-sm text-nebius-text-muted hover:text-white transition-colors">Agent-Grade Inference</Link></li>
               <li><Link href="/workshops/private-agents" className="text-sm text-nebius-text-muted hover:text-white transition-colors">Private Agents</Link></li>
               <li><Link href="/workshops/agent-lifecycle" className="text-sm text-nebius-text-muted hover:text-white transition-colors">Improving Agents Over Time</Link></li>
+              <li><Link href="/workshops/robotics" className="text-sm text-nebius-text-muted hover:text-white transition-colors">Robotics + SO-ARM101</Link></li>
             </ul>
           </div>
 
