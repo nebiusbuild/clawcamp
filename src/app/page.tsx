@@ -21,29 +21,14 @@ const badgeIcons: Record<string, React.ReactNode> = {
       <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
     </svg>
   ),
-  gpu: (
-    <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5M4.5 15.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 002.25-2.25V6.75a2.25 2.25 0 00-2.25-2.25H6.75A2.25 2.25 0 004.5 6.75v10.5a2.25 2.25 0 002.25 2.25z" />
-    </svg>
-  ),
-  kubernetes: (
-    <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9" />
-    </svg>
-  ),
-  robot: (
-    <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M11.42 15.17l-5.1-5.1m0 0L3.07 12.9a1.5 1.5 0 001.06 2.56h1.5m-1.5-2.56l6.36-6.36m5.1 5.1l5.1-5.1m0 0L17.93 7.1a1.5 1.5 0 00-1.06 2.56h-1.5m1.5-2.56l-6.36 6.36M12 21a9 9 0 110-18 9 9 0 010 18z" />
-    </svg>
-  ),
   cloud: (
     <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}>
       <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15a4.5 4.5 0 004.5 4.5H18a3.75 3.75 0 001.332-7.257 3 3 0 00-3.758-3.848 5.25 5.25 0 00-10.233 2.33A4.502 4.502 0 002.25 15z" />
     </svg>
   ),
-  assistant: (
+  lifecycle: (
     <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+      <path strokeLinecap="round" strokeLinejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182M21.015 4.356v4.992" />
     </svg>
   ),
 };
@@ -73,9 +58,9 @@ export default function Home() {
             </h1>
 
             <p className="text-xl text-nebius-text-muted max-w-2xl mb-10 leading-relaxed">
-              Six hands-on workshops and managed services for builders who want agents that actually run —
-              not just sound impressive. From one-click cloud deploys to dedicated GPUs,
-              Kubernetes at scale, robotics, and fully managed personal AI assistants.
+              Three hands-on workshops for builders who want agents that actually run.
+              Deploy on Nebius Serverless, connect to Token Factory for inference,
+              and go from prototype to production-grade private agents.
             </p>
 
             <div className="flex flex-wrap gap-4">
@@ -91,7 +76,7 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="px-8 py-4 border border-nebius-border hover:border-nebius-text-dim text-white font-semibold rounded-xl transition-colors text-lg"
               >
-                Register Now
+                Coming Soon
               </a>
             </div>
           </div>
@@ -114,7 +99,7 @@ export default function Home() {
       <section className="border-b border-nebius-border bg-nebius-darker py-8">
         <div className="mx-auto max-w-7xl px-6 grid grid-cols-2 md:grid-cols-4 gap-8">
           <div className="text-center">
-            <div className="text-3xl font-bold text-white">6</div>
+            <div className="text-3xl font-bold text-white">3</div>
             <div className="text-sm text-nebius-text-muted mt-1">Workshops</div>
           </div>
           <div className="text-center">
@@ -153,7 +138,7 @@ export default function Home() {
               },
               {
                 title: "Real Workflows",
-                desc: "Email automation, lead scoring, robotic arms, personal AI assistants, cloud deployments — choose your use case.",
+                desc: "Email triage, document extraction, lead scoring, private data pipelines — choose your use case.",
                 icon: (
                   <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
@@ -190,8 +175,8 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-6">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Workshops</h2>
           <p className="text-lg text-nebius-text-muted max-w-2xl mb-12">
-            Six tracks covering the full spectrum — from one-click cloud deploys to dedicated GPUs,
-            production Kubernetes, physical robotics, and managed personal AI assistants.
+            Three tracks from first deploy to production-grade private agents.
+            All running on Nebius Serverless + Token Factory.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -253,7 +238,7 @@ export default function Home() {
                   {sortedWorkshops.map((w) => (
                     <th key={w.slug} className="py-4 px-4 text-sm font-semibold text-white">
                       <Link href={`/workshops/${w.slug}`} className="hover:text-nebius-lime transition-colors">
-                        {w.slug === "robotics" ? "Robotics + SO-ARM100" : w.slug === "clawd-vm" ? "OpenClaw on Cloud VM" : w.slug === "personal-assistant" ? "Personal AI Assistant" : w.title.split("+")[0].trim()}
+                        {w.title.split("—")[0].trim()}
                       </Link>
                     </th>
                   ))}
@@ -316,7 +301,7 @@ export default function Home() {
               rel="noopener noreferrer"
               className="px-10 py-4 bg-nebius-lime hover:bg-nebius-lime-hover text-nebius-navy font-semibold rounded-xl transition-colors text-lg"
             >
-              Register Now
+              Coming Soon
             </a>
             <a
               href="#workshops"

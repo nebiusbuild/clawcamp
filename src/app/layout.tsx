@@ -4,7 +4,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Claw Camp | OpenClaw Workshops Powered by Nebius AI Cloud",
   description:
-    "Hands-on workshops for deploying real AI agents with OpenClaw and Nebius infrastructure. From local-first setups to dedicated GPUs, Kubernetes, and robotics.",
+    "Hands-on workshops for deploying real AI agents with OpenClaw on Nebius Serverless + Token Factory. From first deploy to private agents and fine-tuning.",
 };
 
 export default function RootLayout({

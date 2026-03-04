@@ -41,12 +41,9 @@ export default function Footer() {
           <div>
             <h4 className="text-sm font-semibold text-white mb-4">Workshops</h4>
             <ul className="space-y-3">
-              <li><Link href="/workshops/clawd-vm" className="text-sm text-nebius-text-muted hover:text-white transition-colors">Cloud VM</Link></li>
-              <li><Link href="/workshops/local-first" className="text-sm text-nebius-text-muted hover:text-white transition-colors">Local-First + Token Factory</Link></li>
-              <li><Link href="/workshops/h200-gpu" className="text-sm text-nebius-text-muted hover:text-white transition-colors">Dedicated H200 GPU</Link></li>
-              <li><Link href="/workshops/kubernetes" className="text-sm text-nebius-text-muted hover:text-white transition-colors">Kubernetes</Link></li>
-              <li><Link href="/workshops/robotics" className="text-sm text-nebius-text-muted hover:text-white transition-colors">Robotics + SO-ARM100</Link></li>
-              <li><Link href="/workshops/personal-assistant" className="text-sm text-nebius-text-muted hover:text-white transition-colors">Personal AI Assistant</Link></li>
+              <li><Link href="/workshops/agent-inference" className="text-sm text-nebius-text-muted hover:text-white transition-colors">Agent-Grade Inference</Link></li>
+              <li><Link href="/workshops/private-agents" className="text-sm text-nebius-text-muted hover:text-white transition-colors">Private Agents</Link></li>
+              <li><Link href="/workshops/agent-lifecycle" className="text-sm text-nebius-text-muted hover:text-white transition-colors">Improving Agents Over Time</Link></li>
             </ul>
           </div>
 

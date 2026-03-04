@@ -81,7 +81,7 @@ export default function Navbar() {
             rel="noopener noreferrer"
             className="px-5 py-2 bg-nebius-lime hover:bg-nebius-lime-hover text-nebius-navy text-sm font-semibold rounded-lg transition-colors"
           >
-            Register Now
+            Coming Soon
           </a>
         </div>
 
@@ -105,7 +105,7 @@ export default function Navbar() {
           <Link href="/#workshops" className="text-sm text-nebius-text-muted hover:text-white" onClick={() => setMenuOpen(false)}>Workshops</Link>
           <a href="https://docs.tokenfactory.nebius.com/" target="_blank" rel="noopener noreferrer" className="text-sm text-nebius-text-muted hover:text-white" onClick={() => setMenuOpen(false)}>Docs</a>
           <a href="https://tokenfactory.nebius.com/" target="_blank" rel="noopener noreferrer" className="text-sm text-nebius-text-muted hover:text-white" onClick={() => setMenuOpen(false)}>Token Factory</a>
-          <a href={REGISTER_URL} target="_blank" rel="noopener noreferrer" className="px-5 py-2 bg-nebius-lime text-nebius-navy text-sm font-semibold rounded-lg text-center" onClick={() => setMenuOpen(false)}>Register Now</a>
+          <a href={REGISTER_URL} target="_blank" rel="noopener noreferrer" className="px-5 py-2 bg-nebius-lime text-nebius-navy text-sm font-semibold rounded-lg text-center" onClick={() => setMenuOpen(false)}>Coming Soon</a>
         </div>
       )}
     </nav>
