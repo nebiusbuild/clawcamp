@@ -2,7 +2,7 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScheduleTabs from "@/components/ScheduleTabs";
-import { workshops } from "@/data/workshops";
+import { visibleWorkshops } from "@/data/workshops";
 
 const REGISTER_URL = "https://cerebralvalley.ai/e/nebius-build-sf";
 
@@ -11,7 +11,7 @@ const levelOrder: Record<string, number> = {
   Intermediate: 1,
   Advanced: 2,
 };
-const sortedWorkshops = [...workshops].sort(
+const sortedWorkshops = [...visibleWorkshops].sort(
   (a, b) => (levelOrder[a.level] ?? 99) - (levelOrder[b.level] ?? 99)
 );
 
@@ -86,9 +86,9 @@ export default function Home() {
             </h1>
 
             <p className="text-xl text-nebius-text-muted max-w-2xl mb-10 leading-relaxed">
-              Eight hands-on workshops for builders who want agents that actually run.
+              Four hands-on workshops for builders who want agents that actually run.
               Deploy on Nebius Serverless, connect to Token Factory for inference,
-              and go from software agents to physical robots — LeKiwi, OpenDroid, Booster, and Unitree G1.
+              and go from prototype to production-grade private agents — or control a robotic arm.
             </p>
 
             <div className="flex flex-wrap gap-4">
@@ -127,7 +127,7 @@ export default function Home() {
       <section className="border-b border-nebius-border bg-nebius-darker py-8">
         <div className="mx-auto max-w-7xl px-6 grid grid-cols-2 md:grid-cols-4 gap-8">
           <div className="text-center">
-            <div className="text-3xl font-bold text-white">8</div>
+            <div className="text-3xl font-bold text-white">4</div>
             <div className="text-sm text-nebius-text-muted mt-1">Workshops</div>
           </div>
           <div className="text-center">
@@ -203,12 +203,12 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-6">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Workshops</h2>
           <p className="text-lg text-nebius-text-muted max-w-2xl mb-12">
-            Eight tracks from first deploy to production-grade private agents and five different robot platforms.
+            Four tracks from first deploy to production-grade private agents and physical robotics.
             All running on Nebius Serverless + Token Factory.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {workshops.map((w) => (
+            {visibleWorkshops.map((w) => (
               <Link
                 key={w.slug}
                 href={`/workshops/${w.slug}`}

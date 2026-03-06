@@ -19,6 +19,7 @@ export interface Workshop {
   keyValue: string;
   wowFactor: string;
   icon: string;
+  hidden?: boolean;
   whatYouBuild: string[];
   whatWeCover: string[];
   whoIsThisFor: string;
@@ -1187,6 +1188,7 @@ export const workshops: Workshop[] = [
   },
   {
     slug: "lekiwi",
+    hidden: true,
     badge: "Workshop",
     badgeColor: "badge-green",
     title: "LeKiwi — Mobile Robot Imitation Learning",
@@ -1487,6 +1489,7 @@ export const workshops: Workshop[] = [
   },
   {
     slug: "opendroid",
+    hidden: true,
     badge: "Workshop",
     badgeColor: "badge-purple",
     title: "OpenDroid R1D2 — Industrial Arm Programming",
@@ -1787,6 +1790,7 @@ export const workshops: Workshop[] = [
   },
   {
     slug: "booster",
+    hidden: true,
     badge: "Workshop",
     badgeColor: "badge-orange",
     title: "Booster — Quadruped Robot Control & RL",
@@ -2031,6 +2035,7 @@ export const workshops: Workshop[] = [
   },
   {
     slug: "unitree-g1",
+    hidden: true,
     badge: "Workshop",
     badgeColor: "badge-red",
     title: "Unitree G1 — Humanoid Loco-Manipulation",
@@ -2311,3 +2316,5 @@ export const workshops: Workshop[] = [
     ],
   },
 ];
+
+export const visibleWorkshops = workshops.filter((w) => !w.hidden);
